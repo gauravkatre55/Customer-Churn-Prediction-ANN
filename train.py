@@ -1,6 +1,8 @@
 import pandas as pd
 import numpy as np
 import joblib
+import tensorflow 
+
 
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler, LabelEncoder ,OneHotEncoder
@@ -53,7 +55,6 @@ with open('scaler.pkl', 'wb') as f:
     
 ## ANN Implementation
 
-
 import tensorflow as tf
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense
@@ -91,6 +92,3 @@ histrory=model.fit(x_train_sc, y_train, epochs=100,validation_data=(x_test_sc,y_
 
 model.save('model.h5')  # Save the trained model to a file
 
-## Load TensorBoard Extension
-%load_ext tensorboard
-%tensorboard --logdir logs/fit
